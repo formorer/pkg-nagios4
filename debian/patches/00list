@@ -1,0 +1,4 @@
+50_cgi.cfg-debianize.dpatch
+51_commands.cfg-debianize.dpatch
+55_strip_logarchivepath.dpatch
+70_fix_eventhandler_paths.dpatch

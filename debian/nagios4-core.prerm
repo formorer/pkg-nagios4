@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+# we attempt to stop nagios4 twice, once in nagios4-common's prerm
+# and once here.  otherwise, if nagios4+nagios4-common are being purged,
+# the /usr/sbin/nagios4 binary could disappear before nagios4-common's
+# prerm script runs, which would prevent it from being able to stop
+# the binary.
+if [ -x "/etc/init.d/nagios4" ]; then
+	if [ -x "`which invoke-rc.d 2>/dev/null`" ]; then
+		invoke-rc.d nagios4 stop || true
+	else
+		/etc/init.d/nagios4 stop || true
+	fi
+fi
+
+#DEBHELPER#

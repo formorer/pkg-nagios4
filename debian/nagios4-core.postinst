@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+#if we stop nagios4 in nagios4.prerm we should also start it here..
+#(#481334)
+if [ -x "/etc/init.d/nagios4" ]; then
+	if ! /etc/init.d/nagios4 status >/dev/null; then
+
+		if [ -x "`which invoke-rc.d 2>/dev/null`" ]; then
+			invoke-rc.d nagios4 start || true
+		else
+			/etc/init.d/nagios4 start || true
+		fi
+	fi
+fi
+
+#DEBHELPER#

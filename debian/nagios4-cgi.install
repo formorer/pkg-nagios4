@@ -1,0 +1,10 @@
+debian-configs/cgi.cfg /etc/nagios4
+debian/httpd.webapps-common /usr/share/nagios4/debian
+usr/lib/cgi-bin/*
+usr/share/nagios4/htdocs/*.php
+usr/share/nagios4/htdocs/contexthelp
+usr/share/nagios4/htdocs/images
+usr/share/nagios4/htdocs/includes
+usr/share/nagios4/htdocs/media
+usr/share/nagios4/htdocs/robots.txt
+usr/share/nagios4/htdocs/stylesheets/* /etc/nagios4/stylesheets/

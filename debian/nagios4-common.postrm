@@ -1,0 +1,29 @@
+#!/bin/sh -e
+
+# some shorthands for sanity
+en="/etc/nagios4"
+enc="/etc/nagios4/conf.d"
+usn="/usr/share/nagios4"
+
+case "$1" in
+  remove)
+  	;;
+  purge)
+        for file in $en/resource.cfg /var/log/nagios4 /var/run/nagios4 \
+	            /var/lib/nagios4 /var/lib/nagios4/spool \
+		    /var/lib/nagios4/spool/checkresults \
+		    /var/cache/nagios4 /var/lib/nagios4/rw; do
+	    dpkg-statoverride --force --remove $file 2>/dev/null || true
+	done
+        rm -rf /var/run/nagios4 /var/log/nagios4 /var/lib/nagios4 \
+	       /var/cache/nagios4
+	rm -f /etc/nagios4/conf.d/host-gateway_nagios4.cfg
+	#rm -f /etc/nagios4/conf.d/extcommands_nagios4.cfg
+	if which ucf >/dev/null 2>&1; then
+		ucf --purge /etc/nagios4/conf.d/host-gateway_nagios4.cfg
+		#ucf --purge /etc/nagios4/conf.d/extcommands_nagios4.cfg
+	fi
+    ;;
+esac
+
+#DEBHELPER#

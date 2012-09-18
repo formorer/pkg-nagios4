@@ -1,0 +1,4 @@
+etc/nagios4/stylesheets
+usr/share/nagios4/htdocs/ssi 
+usr/lib/cgi-bin
+var/run/nagios4

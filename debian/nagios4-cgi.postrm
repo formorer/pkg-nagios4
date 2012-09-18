@@ -1,0 +1,20 @@
+#!/bin/sh -e
+
+# some shorthands for sanity
+en="/etc/nagios4"
+enc="/etc/nagios4/conf.d"
+usn="/usr/share/nagios4"
+
+case "$1" in
+  remove)
+  	;;
+  purge)
+	rm -f /etc/nagios4/htpasswd.users
+	rm -f /etc/nagios4/apache2.conf
+	if which ucf >/dev/null 2>&1; then
+		ucf --purge /etc/nagios4/apache2.conf
+	fi
+    ;;
+esac
+
+#DEBHELPER#

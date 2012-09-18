@@ -1,0 +1,11 @@
+etc/init.d
+etc/nagios4
+etc/nagios4/conf.d
+usr/share/nagios4/plugins/eventhandlers
+var/lib/nagios4/rw
+var/lib/nagios4/spool
+var/lib/nagios4/spool/checkresults
+var/log/nagios4/archives
+var/run/nagios4
+var/cache/nagios4
+usr/share/nagios4/debian

@@ -1,0 +1,8 @@
+contrib/eventhandlers/* usr/share/nagios4/plugins/eventhandlers
+debian-configs/* /etc/nagios4
+debian/conf.d/* /etc/nagios4/conf.d
+debian/resource.cfg /etc/nagios4
+sample-config/*.cfg /usr/share/doc/nagios4-common/examples
+sample-config/README /usr/share/doc/nagios4-common/examples
+sample-config/template-object/*.cfg /usr/share/doc/nagios4-common/examples/template-object
+sample-config/template-object/README /usr/share/doc/nagios4-common/examples/template-object
